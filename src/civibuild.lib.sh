@@ -89,6 +89,16 @@ function cvutil_mkdir() {
 }
 
 ###############################################################################
+## Set a symbolic link
+## cvutil_rellink <parent> <file> <relpath>
+function cvutil_rellink() {
+  pushd "$1" >> /dev/null
+    [ -f "$2" ] && rm -f "$2"
+    ln -s "$3" "$2"
+  popd >> /dev/null
+}
+
+###############################################################################
 ## Combine host and port to a single string
 ## usage: MY_VAR=$(cvutil_build_hostport $MY_HOST $MY_PORT )
 function cvutil_build_hostport() {
@@ -205,7 +215,7 @@ function civicrm_install() {
   fi
 
   ## Create CiviCRM data dirs
-  amp datadir "$CIVI_FILES" "$CIVI_TEMPLATEC"
+  amp datadir "$CIVI_FILES" "$CIVI_TEMPLATEC" "$CIVI_FILES/ConfigAndLog" "$CIVI_FILES/custom" "$CIVI_FILES/upload"
 
   ## Create CiviCRM config files
   civicrm_make_settings_php
