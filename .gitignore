@@ -14,12 +14,15 @@ bin/amp
 bin/civicrm-upgrade-test
 bin/civix
 bin/composer
+bin/dbunit
 bin/drush
 bin/drush.bat
 bin/drush.complete.sh
 bin/drush.php
 bin/git-scan
 bin/hub
+bin/paratest
+bin/phpunit
 bin/wp
 bin/wp.bat
 build/
