@@ -362,6 +362,7 @@ source "$PRJDIR/src/civibuild.compute-defaults.sh"
 case "$ACTION" in
   create)
     civibuild_download
+    civibuild_save
     civibuild_install
     civibuild_save
     civibuild_show
