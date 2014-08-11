@@ -523,7 +523,11 @@ function drupal_install() {
     ## Setup extra directories
     amp datadir "sites/${DRUPAL_SITE_DIR}/files" "${PRIVATE_ROOT}/${DRUPAL_SITE_DIR}"
     cvutil_mkdir "sites/${DRUPAL_SITE_DIR}/modules"
-    drush vset --yes file_private_path "${PRIVATE_ROOT}/${DRUPAL_SITE_DIR}"
+    if echo "$CMS_VERSION" | grep -q ^8 ; then
+      drush -y cset system.file path.private "${PRIVATE_ROOT}/${DRUPAL_SITE_DIR}"
+    else
+      drush -y vset file_private_path "${PRIVATE_ROOT}/${DRUPAL_SITE_DIR}"
+    fi
   popd >> /dev/null
 }
 
