@@ -27,12 +27,13 @@ projects[drupal][download][branch] = %%CMS_VERSION%%
 libraries[civicrmdrupal][destination] = modules
 libraries[civicrmdrupal][directory_name] = civicrm/drupal
 libraries[civicrmdrupal][download][type] = git
-libraries[civicrmdrupal][download][url] = %%CACHE_DIR%%/torrance/civicrm-drupal.git
-libraries[civicrmdrupal][download][branch] = %%CIVI_VERSION%%
+; FIXME - don't hardcode this branch
+libraries[civicrmdrupal][download][url] = %%CACHE_DIR%%/totten/civicrm-drupal.git
+libraries[civicrmdrupal][download][branch] = 8.x-master-inst
 libraries[civicrmdrupal][overwrite] = TRUE
 
 libraries[civicrmpackages][destination] = modules
-libraries[civicrmpackages][directory_name] = civicrm/packages
+libraries[civicrmpackages][directory_name] = civicrm/core/packages
 libraries[civicrmpackages][download][type] = git
 libraries[civicrmpackages][download][url] = %%CACHE_DIR%%/civicrm/civicrm-packages.git
 libraries[civicrmpackages][download][branch] = %%CIVI_VERSION%%
@@ -40,20 +41,20 @@ libraries[civicrmpackages][overwrite] = TRUE
 
 ; Download available l10n releases (may be outdated)
 ; libraries[civicrm_l10n][destination] = modules
-; libraries[civicrm_l10n][directory_name] = civicrm/l10n/fr_CA/LC_MESSAGES/
+; libraries[civicrm_l10n][directory_name] = civicrm/core/l10n/fr_CA/LC_MESSAGES/
 ; libraries[civicrm_l10n][download][type] = get
 ; libraries[civicrm_l10n][download][url] = "https://raw.github.com/civicrm/l10n/master/po/fr_CA/civicrm.mo"
 ; libraries[civicrm_l10n][overwrite] = TRUE
 
 ; Overwrite .mo files with latest version from SVN
 ; libraries[civicrm_l10n_latest][destination] = modules
-; libraries[civicrm_l10n_latest][directory_name] = civicrm/l10n
+; libraries[civicrm_l10n_latest][directory_name] = civicrm/core/l10n
 ; libraries[civicrm_l10n_latest][download][type] = svn
 ; libraries[civicrm_l10n_latest][download][url] = http://svn.civicrm.org/l10n/trunk/
 ; libraries[civicrm_l10n_latest][overwrite] = TRUE
 
 libraries[civicrm][destination] = modules
-libraries[civicrm][directory_name] = civicrm
+libraries[civicrm][directory_name] = civicrm/core
 libraries[civicrm][download][type] = git
 libraries[civicrm][download][url] = %%CACHE_DIR%%/civicrm/civicrm-core.git
 libraries[civicrm][download][branch] = %%CIVI_VERSION%%

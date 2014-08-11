@@ -1,0 +1,50 @@
+diff --git a/CRM/Core/CodeGen/Config.php b/CRM/Core/CodeGen/Config.php
+index de7ae4b..4659c7e 100644
+--- a/CRM/Core/CodeGen/Config.php
++++ b/CRM/Core/CodeGen/Config.php
+@@ -16,7 +16,7 @@ class CRM_Core_CodeGen_Config extends CRM_Core_CodeGen_BaseTask {
+ 
+   function setupCms() {
+     if (!in_array($this->config->cms, array(
+-      'drupal', 'joomla', 'wordpress'))) {
++      'drupal', 'drupal8', 'joomla', 'wordpress'))) {
+       echo "Config file for '{$this->config->cms}' not known.";
+       exit();
+     }
+@@ -48,6 +48,10 @@ class CRM_Core_CodeGen_Config extends CRM_Core_CodeGen_BaseTask {
+         $candidates[] = "../drupal/civicrm.config.php.drupal";
+         $candidates[] =  "../../drupal/civicrm.config.php.drupal";
+         break;
++      case 'drupal8':
++        $candidates[] = "../drupal/civicrm.config.php.drupal8";
++        $candidates[] =  "../../drupal/civicrm.config.php.drupal8";
++        break;
+       case 'wordpress':
+         $candidates[] = "../../civicrm.config.php.wordpress";
+         $candidates[] = "../WordPress/civicrm.config.php.wordpress";
+diff --git a/CRM/Core/CodeGen/Main.php b/CRM/Core/CodeGen/Main.php
+index 924713f..6f4b8c1 100644
+--- a/CRM/Core/CodeGen/Main.php
++++ b/CRM/Core/CodeGen/Main.php
+@@ -6,7 +6,7 @@
+ class CRM_Core_CodeGen_Main {
+   var $buildVersion;
+   var $db_version;
+-  var $cms; // drupal, joomla, wordpress
++  var $cms; // drupal, drupal8, joomla, wordpress
+ 
+   var $CoreDAOCodePath;
+   var $sqlCodePath;
+diff --git a/bin/setup.sh b/bin/setup.sh
+index 989e33b..dbd4722 100755
+--- a/bin/setup.sh
++++ b/bin/setup.sh
+@@ -110,7 +110,7 @@ fi
+ 
+ # run the cli script to build the menu and the triggers
+ cd "$CALLEDPATH/.."
+-"$PHP5PATH"php bin/cli.php -e System -a flush --triggers 1 --session 1
++#"$PHP5PATH"php bin/cli.php -e System -a flush --triggers 1 --session 1
+ 
+ # reset config_backend and userFrameworkResourceURL which gets set
+ # when config object is initialized
