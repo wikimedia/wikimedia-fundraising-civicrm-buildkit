@@ -30,4 +30,5 @@ bin/wp.bat
 build/
 extern/
 vagrant/*/.vagrant
+vendor/
 web/
