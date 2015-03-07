@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d96ce7367f4aef70ab743dcac6e29be7",
+    "hash": "1fb4b8052924c9ffdc7653b5d0bbd4f6",
     "packages": [
         {
             "name": "brianium/habitat",
@@ -98,7 +98,7 @@
                 "parallel",
                 "testing"
             ],
-            "time": "2014-09-21 03:48:50"
+            "time": "2014-09-21 04:45:25"
         },
         {
             "name": "civicrm/upgrade-test",
@@ -137,12 +137,12 @@
             "version": "v1.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/d11wtq/boris.git",
+                "url": "https://github.com/borisrepl/boris.git",
                 "reference": "125dd4e5752639af7678a22ea597115646d89c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/d11wtq/boris/zipball/125dd4e5752639af7678a22ea597115646d89c6e",
+                "url": "https://api.github.com/repos/borisrepl/boris/zipball/125dd4e5752639af7678a22ea597115646d89c6e",
                 "reference": "125dd4e5752639af7678a22ea597115646d89c6e",
                 "shasum": ""
             },
@@ -176,7 +176,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/716e06cfe40a637155829213b0943f96d73fd62f",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/7739c9bad10c1f2ec7e9534549bf022248a1ad1b",
                 "reference": "d1d13676f5beacaa9f8619088fe3ae45ea28a6cf",
                 "shasum": ""
             },
@@ -198,6 +198,11 @@
                 "drush.complete.sh"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Drush": "lib/"
@@ -235,11 +240,15 @@
                 {
                     "name": "Jonathan Hedstrom",
                     "email": "jhedstrom@gmail.com"
+                },
+                {
+                    "name": "Christopher Gervais",
+                    "email": "chris@ergonlogic.com"
                 }
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2014-12-10 21:58:35"
+            "time": "2013-10-26 07:40:45"
         },
         {
             "name": "joomlatools/joomla-console",
@@ -1445,14 +1454,8 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/totten/amp.git",
-                "reference": "8dc281d654514c7bd27f115ceb294b30603671fb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/totten/amp/zipball/8dc281d654514c7bd27f115ceb294b30603671fb",
-                "reference": "8dc281d654514c7bd27f115ceb294b30603671fb",
-                "shasum": ""
+                "url": "https://gerrit.wikimedia.org/r/wikimedia/fundraising/civicrm-buildkit/vendor/totten/amp",
+                "reference": "12fc702ee8d3d074f2a313541427a9f6260cfa34"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1474,7 +1477,6 @@
                     "DB\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "AGPL-3.0"
             ],
@@ -1486,7 +1488,7 @@
             ],
             "description": "CLI Interface to *AMP-style stacks",
             "homepage": "https://github.com/totten/amp",
-            "time": "2014-10-12 18:49:36"
+            "time": "2014-12-12 21:33:57"
         },
         {
             "name": "totten/git-scan",
