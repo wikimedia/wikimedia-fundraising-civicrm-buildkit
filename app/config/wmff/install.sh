@@ -5,6 +5,11 @@
 ## Drupal is actually in a subdir of the main source tree
 CMS_ROOT="$WEB_ROOT/drupal"
 
+# Skip the store and restore to dump, we want to avoid cross-job contamination.
+CMS_SQL_SKIP=1
+CIVI_SQL_SKIP=1
+TEST_SQL_SKIP=1
+
 # Update vendor libraries.
 pushd "$WEB_ROOT"
 composer install
