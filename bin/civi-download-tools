@@ -20,8 +20,7 @@ TMPDIR="$PRJDIR/app/tmp"
 LOCKFILE="$TMPDIR/civi-download-tools.lock"
 LOCKTIMEOUT=90
 CIVIXVER=14.09.1
-CIVIXRELEASE="https://raw.githubusercontent.com/totten/civix/master/release"
-CIVIXURL="https://github.com/totten/civix.git"
+CIVIXURL="http://downloads.sourceforge.net/project/civix/civix-${CIVIXVER}.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fcivix%2Ffiles%2F&use_mirror=master"
 HUBTAG="v1.12.1"
 HUBURL="https://github.com/github/hub"
 IS_QUIET=
@@ -165,7 +164,7 @@ pushd $PRJDIR >> /dev/null
   ## Download "civix"
   ## FIXME: Update civix so that it can be installed via composer as a dependency
   mkdir -p "$PRJDIR/extern" && touch "$PRJDIR/extern/civix.txt"
-  if [ -z "$IS_FORCE" -a -e "$PRJDIR/bin/civix" -a -d "extern/civix" -a "$(cat $PRJDIR/extern/civix.txt)" == "$CIVIXURL-$CIVIXVER" ]; then
+  if [ -z "$IS_FORCE" -a -e "$PRJDIR/bin/civix" -a -d "extern/civix" -a "$(cat $PRJDIR/extern/civix.txt)" == "$CIVIXURL" ]; then
     echo_comment "[[civix binary ($PRJDIR/bin/civix) already exists. Skipping.]]"
   else
     echo "[[Install civix]]"
@@ -173,17 +172,12 @@ pushd $PRJDIR >> /dev/null
     ## Cleanup
     [ -e app/tmp/civix ] && rm -rf app/tmp/civix
     [ -e extern/civix ] && rm -rf extern/civix
-    [ -e "$TMPDIR/civix-$CIVIXVER.tar.bz2" ] && rm -rf "$TMPDIR/civix-$CIVIXVER.tar.bz2"
-    [ -e "$TMPDIR/civixrelease" ] && rm -f "$TMPDIR/civixrelease"
+    [ -e "$TMPDIR/civix.tar.bz2" ] && rm -rf "$TMPDIR/civix.tar.bz2"
     mkdir -p extern/civix
 
     ## Download
-    pushd "$TMPDIR" >> /dev/null
-      download_url "$CIVIXRELEASE" civixrelease
-      chmod u+x civixrelease
-      bash -c "./civixrelease \"$CIVIXURL\" \"$CIVIXVER\""
-    popd >> /dev/null
-    tar xj  --strip-components 1 -C extern/civix -f "$TMPDIR/build/civix-$CIVIXVER.tar.bz2"
+    download_url "$CIVIXURL" "$TMPDIR/civix.tar.bz2"
+    tar xj  --strip-components 1 -C extern/civix -f "$TMPDIR/civix.tar.bz2"
 
     ## Setup a relative symlink
     pushd bin >> /dev/null
@@ -192,7 +186,7 @@ pushd $PRJDIR >> /dev/null
     popd >> /dev/null
 
     ## Mark as downloaded
-    echo "$CIVIXURL-$CIVIXVER" > "$PRJDIR/extern/civix.txt"
+    echo "$CIVIXURL" > "$PRJDIR/extern/civix.txt"
   fi
 
   ## Download "hub"
