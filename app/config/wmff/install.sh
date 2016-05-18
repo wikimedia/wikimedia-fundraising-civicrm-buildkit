@@ -43,6 +43,7 @@ drush -y en \
   adyen_audit \
   amazon_audit \
   astropay_audit \
+  banner_history \
   contribution_audit \
   contribution_tracking \
   environment_indicator \
