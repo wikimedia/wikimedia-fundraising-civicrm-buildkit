@@ -72,8 +72,7 @@ drush -y en \
   wmf_test_settings \
   wmf_unsubscribe \
   wmf_unsubscribe_qc \
-  wmf_zendesk_reports \
-  worldpay_audit
+  wmf_zendesk_reports
 
 drush -y updatedb
 
