@@ -36,7 +36,7 @@ civicrm_install
 ###############################################################################
 ## Extra configuration
 pushd "$CMS_ROOT"
-drush -y en `cat sites/all/default/enabled_modules`
+drush -y en `cat sites/default/enabled_modules`
 
 drush -y updatedb
 
