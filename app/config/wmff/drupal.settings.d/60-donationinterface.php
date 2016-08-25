@@ -36,7 +36,7 @@ $wgDonationInterfaceGatewayAdapters = array(
 );
 
 $wgDonationInterfaceForbiddenCountries = array(
-    'XX', // For testing
+    'KP', // For testing
 );
 
 $wgDonationInterface3DSRules = array();
